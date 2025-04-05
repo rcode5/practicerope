@@ -1,0 +1,18 @@
+Rails/ApplicationRecord:
+  Exclude:
+    - "db/migrate/**"
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/EnvironmentVariableAccess:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false

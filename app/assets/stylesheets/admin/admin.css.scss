@@ -1,0 +1,15 @@
+// /* admin */
+@import '../imports/mixins';
+@import '../imports/colors';
+@import '../imports/dimensions';
+@import '../application/loveli-icons.css.scss';
+
+header.container-fluid {
+  border-bottom: 1px solid $light-gray;
+}
+
+footer {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}

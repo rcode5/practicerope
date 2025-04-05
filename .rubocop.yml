@@ -1,0 +1,44 @@
+inherit_from:
+  - .rubocop_todo.yml
+  - rubocop/layout.yml
+  - rubocop/lint.yml
+  - rubocop/metrics.yml
+  - rubocop/naming.yml
+  - rubocop/performance.yml
+  - rubocop/rails.yml
+  - rubocop/security.yml
+  - rubocop/style.yml
+
+# Configuration hierarchy:
+#
+# 1. Rubocop defaults
+# 2. Carbon Five defaults (this file)
+# 3. Project overrides
+#
+# See http://rubocop.readthedocs.io/en/latest/configuration/#inheriting-configuration-from-a-remote-url for details.
+#
+
+plugins:
+  - rubocop-performance
+  - rubocop-rails
+
+
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  NewCops: enable
+  Exclude:
+    - "bin/*"
+    - "config/initializers/secret_token.rb"
+    - config/initializers/new_framework_defaults_7_0.rb
+    - "db/schema.rb"
+    - "db/sample_data.rb"
+    - "db/migrate/*.rb"
+    - "lib/templates/**/*"
+    - "**/node_modules/**/*"
+    - "script/rails"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "log/**/*"
+    - config/deploy/

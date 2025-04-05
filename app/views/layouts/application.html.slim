@@ -1,0 +1,31 @@
+doctype 5
+html
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"
+    meta name='description' content="Selectors Choice DJ&#39;s - San Francisco - Podcasts - Funk Reggae Rocksteady Soul LoftStyle"
+    meta name='keywords' content='Selectors Choice DJ San Francisco Podcasts Funk Reggae Rocksteady Soul LoftStyle'
+    link rel="icon" href="/favicon.ico" type='image/ico'
+    link rel="icon" href="/favicon.png" type='image/png'
+    title = @title
+    = csrf_meta_tag
+    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Montserrat:100,300,400,700"
+    = stylesheet_link_tag :application, media: :all
+    = javascript_include_tag :application
+    = javascript_include_tag src="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.12/mediaelement-and-player.min.js"
+    = stylesheet_link_tag href="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.12/mediaelementplayer.min.css"
+
+  body
+    .container
+      header
+        .home
+        = render '/common/nav'
+
+      .main id=@current_section
+        - if Rails.application.config.shutdown_active
+          = render '/common/temporary_shutdown'
+        = render '/common/flash', flash: flash
+        = yield
+        .bottom_spacer
+    = render '/common/footer'
+
+  = render '/common/ga'

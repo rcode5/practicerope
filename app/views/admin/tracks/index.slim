@@ -1,0 +1,17 @@
+h1
+  | Tracks
+  '
+  = link_to_icon :add, new_admin_track_path, title: 'add new track'
+
+
+- if @published.empty? && @unpublished.empty?
+  section.empty Maybe you ought to add some tracks!
+- else
+  - if @unpublished.present?
+    section
+      h2 Unpublished
+      = render 'tracks_table', tracks: @unpublished
+  - if @published.present?
+    section
+      h2 Published
+      = render 'tracks_table', tracks: @published

@@ -1,0 +1,13 @@
+common: &common
+  adapter: sqlite3
+  pool: 5
+
+development:
+  <<: *common
+  database: selectors_choice_dev.sqlite3
+
+
+test:
+  <<: *common
+  database: selectors_choice_test.sqlite3
+  min_messages: WARNING

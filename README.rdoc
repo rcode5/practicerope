@@ -1,0 +1,21 @@
+== Selectors Choice
+
+Homegrown home hosted sound cloud
+
+Required Env Vars
+
+    AWS_ACCESS_KEY_ID: AKIAxxxxxxxxxxxx
+    AWS_S3_BUCKET: <bucket name> - defaults to selectors_choice
+    AWS_CLOUD_FRONT_DOMAIN: d123123123 - do not include `cloudfront.net`
+    AWS_KEY_PAIR_ID: <id of aws key pair for origin access identity>
+    AWS_REGION: <region> - e.g. us-east-1
+    AWS_SECRET_ACCESS_KEY: xxxxxxxxxxxxx
+
+    # for local dev you can include
+    AWS_PRIVATE_KEY_FILE: < path to the origin access identity pk-key.pem file >
+    
+    # for heroku you need to include the contents of the aforementioned file
+    # with `\n` where you want newlines. the app will replace `\n` with
+    # after reading the env var
+    AWS_PRIVATE_KEY: 'begin -----BEGIN RSA PRIVATE KEY-----\n...'
+
