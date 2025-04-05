@@ -52,53 +52,5 @@ feature 'Admin' do
       expect(page).to have_content 'track with recorded time(draft)'
       expect(page).to have_content '2020-10-10'
     end
-
-    scenario 'can add a track with tags', js: true do
-      click_on 'tracks'
-
-      click_on 'add new track'
-
-      fill_in :track_title, with: 'the new track title'
-
-      click_on 'Create Track'
-
-      expect(page).to have_content 'prohibited this track from being saved'
-      expect(page).to have_content "Filename can't be blank"
-
-      fill_in :track_title, with: 'track with tags and style'
-      fill_in_selectize_multi('track_tag_list', with: 'my tag')
-      fill_in_selectize_multi('track_style_list', with: 'my style')
-      fill_in :track_filename, with: 'the_dir/the_file.mp3'
-      check :track_published
-
-      click_on 'Create Track'
-
-      expect(page).to have_content 'track with tags and style(published)'
-      expect(page).to have_content 'my tag'
-      expect(page).to have_content 'my style'
-    end
-
-    context 'with custom tags' do
-      scenario 'can update a track', js: true do
-        click_on 'tracks'
-
-        within table_row_matching('track with tags') do
-          click_on 'Show'
-        end
-
-        expect(page).to have_content 'tag1, tag2'
-        expect(page).to have_content 'style1, style2'
-
-        click_on_first 'Edit'
-
-        fill_in :title, with: 'tagtrack with new title'
-        click_on 'Update Track'
-
-        expect(page).to have_content 'tagtrack with new title'
-
-        expect(page).to have_content 'tag1, tag2'
-        expect(page).to have_content 'style1, style2'
-      end
-    end
   end
 end

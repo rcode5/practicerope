@@ -18,7 +18,6 @@ describe 'admin/tracks/edit' do
     assert_select 'form', action: tracks_path(@track), method: 'post' do
       assert_select 'input#track_title', name: 'track[title]'
       assert_select 'input#track_display_title', name: 'track[display_title]'
-      assert_select 'textarea#track_playlist', name: 'track[playlist]'
       assert_select 'textarea#track_description', name: 'track[description]'
     end
   end

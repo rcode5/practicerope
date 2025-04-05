@@ -9,7 +9,14 @@ header.container-fluid {
 }
 
 footer {
+  border-top: 1px solid $light-gray;
   display: flex;
   gap: 20px;
   justify-content: flex-end;
+}
+
+.flash {
+  &.error, &.alert {
+    color: $dark-red;
+  }
 }
