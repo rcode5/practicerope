@@ -24,6 +24,10 @@ $(function() {
   $('.flash').each(function(idx, el) {
     var $el;
     $el = $(el);
+    const classes = Array.from(el.classList)
+    if (classes.includes('alert') || classes.includes('error')) {
+      return;
+    }
     return setTimeout(function() {
       $el.fadeOut();
     }, 3500);
@@ -31,24 +35,5 @@ $(function() {
   $('.icon-search').bind('click', function() {
     $(this).closest('form').submit();
   });
-  if ($('form.search [name=tags]').length) {
-    $.ajax({
-      url: '/tags.json',
-      success: function(d) {
-        return $('.search [name=tags]').selectize({
-          delimiter: ',',
-          options: d.map( function(tag) { return { value: tag, text: tag }; }),
-          placeholder: 'search by tag'
-        });
-      },
-      error: function() {
-        return $('.search [name=tags]').selectize({
-          delimiter: ',',
-          items: d,
-          placeholder: 'search by tag'
-        });
-      }
-    });
-  }
 });
 

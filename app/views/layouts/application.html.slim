@@ -8,7 +8,9 @@ html
     link rel="icon" href="/favicon.png" type='image/png'
     title = @title
     = csrf_meta_tag
-    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Montserrat:100,300,400,700"
+    link rel="preconnect" href="https://fonts.googleapis.com"
+    link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=true
+    link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
     = stylesheet_link_tag :application, media: :all
     = javascript_include_tag :application
     = javascript_include_tag src="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.12/mediaelement-and-player.min.js"
@@ -21,8 +23,6 @@ html
         = render '/common/nav'
 
       .main id=@current_section
-        - if Rails.application.config.shutdown_active
-          = render '/common/temporary_shutdown'
         = render '/common/flash', flash: flash
         = yield
         .bottom_spacer

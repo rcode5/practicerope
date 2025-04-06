@@ -23,6 +23,5 @@ module SelectorsChoice
     #
 
     config.track_expiry_in_seconds = ENV.fetch('TRACK_EXPIRY_IN_SECONDS', 60 * 60)
-    config.shutdown_active = ENV['SHUTDOWN_ACTIVE'].present?
   end
 end
