@@ -8,7 +8,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module SelectorsChoice
+module PracticeRope
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -23,5 +23,7 @@ module SelectorsChoice
     #
 
     config.track_expiry_in_seconds = ENV.fetch('TRACK_EXPIRY_IN_SECONDS', 60 * 60)
+
+    config.active_record.schema_format = :sql
   end
 end

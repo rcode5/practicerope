@@ -7,7 +7,6 @@ describe 'admin/tracks/edit' do
     @track = assign(:track, FactoryBot.create(:track,
                                               title: 'MyString',
                                               display_title: 'MyString',
-                                              playlist: 'MyText',
                                               description: 'MyText'))
   end
 

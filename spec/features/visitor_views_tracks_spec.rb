@@ -6,15 +6,14 @@ feature 'Visitor' do
   let(:tracks) do
     [
       FactoryBot.create(:track, :published, title: 'the first mix today',
-playlist: "** bootylicious - Destiny's Child"),
-      FactoryBot.create(:track, :published, title: 'the second mix today', playlist: 'james brown here'),
+description: "** bootylicious - Destiny's Child"),
+      FactoryBot.create(:track, :published, title: 'the second mix today', description: 'james brown here'),
       FactoryBot.create(:track, :published, title: 'the third mix today'),
     ]
   end
   let(:unpublished_tracks) { FactoryBot.create_list(:track, 1) }
 
   before do
-    mock_cloud_front
     tracks
   end
 

@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_08_194132) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -36,17 +64,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+# Could not dump table "track_searches" because of following StandardError
+#   Unknown type '' for column 'title'
+
+
+# Could not dump table "track_searches_config" because of following StandardError
+#   Unknown type '' for column 'k'
+
+
+# Could not dump table "track_searches_content" because of following StandardError
+#   Unknown type '' for column 'c0'
+
+
+  create_table "track_searches_data", force: :cascade do |t|
+    t.binary "block"
+  end
+
+  create_table "track_searches_docsize", force: :cascade do |t|
+    t.binary "sz"
+  end
+
+# Could not dump table "track_searches_idx" because of following StandardError
+#   Unknown type '' for column 'segid'
+
+
   create_table "tracks", force: :cascade do |t|
     t.string "title"
     t.string "display_title"
-    t.text "playlist"
     t.text "description"
     t.datetime "recorded_on", precision: nil
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.string "author"
     t.boolean "published"
-    t.string "filename"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +111,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end

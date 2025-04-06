@@ -3,11 +3,12 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   include Clearance::Authentication
+  include ActiveStorage::SetCurrent
   protect_from_forgery
 
   before_action :set_title
 
   def set_title
-    @title = 'Selectors Choice DJ\'s'
+    @title = 'Practice Rope'
   end
 end

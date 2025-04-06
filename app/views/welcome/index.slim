@@ -4,13 +4,6 @@ section.banner-image
   .banner-image--title
     img src=image_path('practice_rope_words.png')
 - unless @tracks.empty?
-  - if @tags.present?
-    .tagged
-      span.label Tagged with:
-      '
-      = @tags.map{|t| render_remove_tag_link t, class: 'tag', title: 'remove tag'}.join(", ").html_safe
-      a href=root_path title='clear tags'
-        i.icon.icon-delete
   ul.tracks
     - @tracks.each do |track|
       = render 'track', track: track

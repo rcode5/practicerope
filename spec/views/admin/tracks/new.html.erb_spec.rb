@@ -7,7 +7,6 @@ describe 'admin/tracks/new' do
     assign(:track, FactoryBot.build(:track,
                                     title: 'MyString',
                                     display_title: 'MyString',
-                                    playlist: 'MyText',
                                     description: 'MyText'))
   end
 

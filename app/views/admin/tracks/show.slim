@@ -6,6 +6,7 @@
     dt.label Title
     dd.value
       = @track.title
+      '
       = @track.published? ? "(published)" : "(draft)"
 
   dl
@@ -14,35 +15,9 @@
       = @track.display_title
 
   dl
-    dt.label Author
-    dd.value
-      = @track.author
-
-  dl
     dt.label Recorded on
     dd.value
       = @track.recorded_on unless @track.recorded_on.blank?
-
-  dl
-    dt.label Filename
-    dd.value = @track.filename
-
-  dl
-    dt.label Signed URL
-    dd.value = @track.signed_url
-
-  dl
-    dt.label Tags
-    dd.value = @track.tag_list.join(", ")
-
-  dl
-    dt.label Styles
-    dd.value = @track.style_list.join(", ")
-
-  dl
-    dt.label Playlist:
-    dd.value.content.markup
-      = markup (@track.playlist || '')
 
   dl
     dt.label Description:

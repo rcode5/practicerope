@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SearchService
-  FIELDS = %w[title description playlist tags]
+  FIELDS = %w[title description]
   attr_reader :query
 
   def initialize(query)
