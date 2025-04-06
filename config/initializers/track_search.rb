@@ -5,7 +5,7 @@ Rails.application.config.after_initialize do
   table_name = TrackSearch.table_name
   statements = [
     "drop table if exists #{table_name}",
-    "create virtual table #{table_name} using fts5(title, description, playlist, tags, track_id)",
+    "create virtual table #{table_name} using fts5(title, description, track_id)",
   ].freeze
   begin
     statements.each do |stmt|

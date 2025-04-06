@@ -1,7 +1,7 @@
 #!/bin/sh
 HEROKU=/usr/local/bin/heroku
-LOCAL_DB=selectors_choice_dev
-APP=selectorschoice
+LOCAL_DB=practice_rope_dev
+APP=practicerope
 PGUSER=postgres
 
 echo "Dropping $LOCAL_DB"

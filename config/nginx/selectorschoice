@@ -1,11 +1,11 @@
-upstream selectorschoice_app {
+upstream practicerope_app {
     # Path to Puma SOCK file, as defined previously
-    server unix:/home/deploy/deployed/selectorschoice/shared/tmp/sockets/puma.sock fail_timeout=0;
+    server unix:/home/deploy/deployed/practicerope/shared/tmp/sockets/puma.sock fail_timeout=0;
 }
 
 server {
-    server_name selectorschoice.bunnymatic.com;
-    root /home/deploy/deployed/selectorschoice/current/public;
+    server_name practicerope.bunnymatic.com;
+    root /home/deploy/deployed/practicerope/current/public;
 
     #For Basic Auth
     # auth_basic "Restricted";
@@ -21,7 +21,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
         proxy_redirect off;
-        proxy_pass http://selectorschoice_app;
+        proxy_pass http://practicerope_app;
     }
 
     location = /status {
@@ -30,7 +30,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
         proxy_redirect off;
-        proxy_pass http://selectorschoice_app;
+        proxy_pass http://practicerope_app;
     }
 
     # location / {
@@ -58,15 +58,15 @@ server {
         }
     }
 
-    try_files $uri/index.html $uri @selectorschoice_app;
-    location @selectorschoice_app {
+    try_files $uri/index.html $uri @practicerope_app;
+    location @practicerope_app {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-SSL-Client-Cert $ssl_client_cert;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
         proxy_redirect off;
-        proxy_pass http://selectorschoice_app;
+        proxy_pass http://practicerope_app;
 
     }
 
@@ -77,8 +77,8 @@ server {
 
     listen 443 ssl; # managed by Certbot
 
-    ssl_certificate /etc/letsencrypt/live/selectorschoice.bunnymatic.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/selectorschoice.bunnymatic.com/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/practicerope.bunnymatic.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/practicerope.bunnymatic.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 
 

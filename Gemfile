@@ -11,6 +11,7 @@ gem 'clearance'
 gem 'coffee-rails'
 gem 'dotenv-rails'
 gem 'fast_jsonapi'
+gem 'image_processing'
 gem 'journey'
 gem 'jquery-rails'
 gem 'listen'
@@ -36,6 +37,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'active_storage_validations'
   gem 'bundle-audit'
   gem 'climate_control'
   gem 'factory_bot'

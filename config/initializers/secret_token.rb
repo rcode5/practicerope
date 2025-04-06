@@ -11,4 +11,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SelectorsChoice::Application.config.secret_key_base = 'd780974cf3dfa8f441369701164955547b9a0c2e1c3e239cb79b8890c5dd7d6e5d074fcdb2d3442571de7e6faf4932e73060af44a9ef846f6cd8156499539309'
+PracticeRope::Application.config.secret_key_base = 'd780974cf3dfa8f441369701164955547b9a0c2e1c3e239cb79b8890c5dd7d6e5d074fcdb2d3442571de7e6faf4932e73060af44a9ef846f6cd8156499539309'

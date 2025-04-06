@@ -4,19 +4,16 @@ require 'rails_helper'
 
 feature 'Admin' do
   include_context 'admin logged in'
-  before do
-    mock_cloud_front
-  end
 
   context 'when there are a few tracks' do
     let(:tracks) do
       [
         FactoryBot.create(:track, title: 'not ready for the world yet'),
         FactoryBot.create(:track, :published, title: 'My Public Work'),
-        FactoryBot.create(:track, :with_tags, title: 'track with tags', recorded_on: 2.years.ago),
+        FactoryBot.create(:track, title: 'the other track', recorded_on: 2.years.ago),
       ]
     end
-    let(:track_with_tags) { tracks.last }
+
     before do
       tracks
       visit admin_index_path
@@ -39,17 +36,16 @@ feature 'Admin' do
       click_on 'Create Track'
 
       expect(page).to have_content 'prohibited this track from being saved'
-      expect(page).to have_content "Filename can't be blank"
+      expect(page).to have_content "Audio can't be blank"
 
       fill_in :track_title, with: 'track with recorded time'
       fill_in_datepicker(:recorded_on_day, with: '2020-10-10')
       fill_in :recorded_on_time, with: '2:00pm'
-      fill_in :track_filename, with: 'the_dir/the_file.mp3'
+      attach_file 'Audio', fixture_path('dummy.mp3')
 
-      #      sleep 1
       click_on 'Create Track'
 
-      expect(page).to have_content 'track with recorded time(draft)'
+      expect(page).to have_content 'track with recorded time (draft)'
       expect(page).to have_content '2020-10-10'
     end
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SelectorsChoice
+module PracticeRope
   class S3
     def initialize(key: nil, secret: nil, region: nil, bucket: nil)
       @bucket = bucket || Rails.application.credentials.aws.s3_bucket

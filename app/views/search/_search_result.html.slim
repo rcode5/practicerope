@@ -1,7 +1,12 @@
 -# expects track
 - track ||= track
-.search-result
-  a.search-result--track href=track_path(track)
-    .search-result--track--recorded-on = track.recorded_on.present? ? track.recorded_on.strftime("%-d %b %g") : ''
-    .search-result--track--title = track.title
-    .search-result--track--dj = track.author
+tr.search-result.search-result--track
+  td
+    a.search-result--track href=track_path(track)
+      .search-result--track--recorded-on = track.recorded_on.present? ? track.recorded_on.strftime("%-d %b %g") : ''
+  td
+    a.search-result--track href=track_path(track)
+      .search-result--track--title = track.title
+  td
+    a.search-result--track href=track_path(track)
+      .search-result--track--title = truncate(track.description, length: 50)

@@ -6,4 +6,4 @@
 
 require File.expand_path('config/application', __dir__)
 
-SelectorsChoice::Application.load_tasks
+PracticeRope::Application.load_tasks

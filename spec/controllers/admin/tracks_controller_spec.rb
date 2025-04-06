@@ -6,7 +6,10 @@ ATTRS = %w[id created_at updated_at].freeze
 
 describe Admin::TracksController do
   def valid_attributes(overrides = {})
-    FactoryBot.build(:track).attributes.except(*ATTRS).merge(overrides)
+    FactoryBot.build(:track).attributes
+      .except(*ATTRS)
+      .merge(overrides)
+      .merge({ audio: Rack::Test::UploadedFile.new(FixtureFileHelpers.fixture_path('dummy.mp3')) })
   end
 
   describe 'authorized' do
@@ -48,7 +51,6 @@ describe Admin::TracksController do
           expect(cloned_track.send(fld)).to eql track.send(fld)
         end
         expect(cloned_track.published).to be_falsey
-        expect(cloned_track.filename).to be_empty
       end
     end
 
@@ -131,19 +133,6 @@ describe Admin::TracksController do
           track = Track.create! valid_attributes
           put :update, params: { id: track.to_param, track: valid_attributes }
           expect(response).to redirect_to(admin_track_path(Track.last))
-        end
-
-        it 'properly updates tags' do
-          track = Track.create! valid_attributes
-          put :update, params: { id: track.to_param, track: { tag_list: 'tag1,tag2' } }
-          expect(Track.find(track.id).tag_list).to match_array %w[tag2 tag1]
-        end
-
-        it 'properly updates tags' do
-          track = Track.create! valid_attributes(tag_list: %w[this that])
-          expect(Track.find(track.id).tag_list).to match_array %w[that this]
-          put :update, params: { id: track.to_param, track: { tag_list: 'this' } }
-          expect(Track.find(track.id).tag_list).to match_array ['this']
         end
 
         12.times do |hr|

@@ -19,9 +19,9 @@ server 'mau.rcode5.com',
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 # set :branch, 'main'
 
-set :deploy_to, '/home/deploy/deployed/selectorschoice'
+set :deploy_to, '/home/deploy/deployed/practicerope'
 set :puma_systemctl_user, :system # For capistrano-puma - should force sudo
-set :puma_service_unit_name, 'puma-selectorschoice'
+set :puma_service_unit_name, 'puma-practicerope'
 
 # role-based syntax
 # ==================

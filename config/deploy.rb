@@ -10,8 +10,8 @@ set :rbenv_prefix,
 set :rbenv_map_bins, %w[rake gem bundle ruby rails puma pumactl]
 set :rbenv_roles, :all # default value
 
-set :application, 'selectors_choice'
-set :repo_url, 'git@github.com:rcode5/selectorschoice.git' # 'git@example.com:me/my_repo.git'
+set :application, 'practice_rope'
+set :repo_url, 'git@github.com:rcode5/practicerope.git' # 'git@example.com:me/my_repo.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -34,7 +34,7 @@ append :linked_files, 'config/database.yml',
        'config/credentials.yml.enc',
        'config/master.key',
        'config/puma.rb',
-       'selectors_choice_production.sqlite3',
+       'practice_rope_production.sqlite3',
        'aws_cf_private_key.pem'
 
 # Default value for linked_dirs is []

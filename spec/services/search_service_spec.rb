@@ -8,16 +8,13 @@ describe SearchService do
       FactoryBot.create(:track,
                         :published,
                         title: 'Touchstone Holiday party set 2022',
-                        description: 'this was super fun',
-                        playlist: 'james brown - sex machine'),
+                        description: 'this was super fun'),
       FactoryBot.create(:track,
                         :published,
                         title: 'Disco Nap Birthday',
-                        description: 'fun in the backyard',
-                        playlist: 'green onions - booker t'),
+                        description: 'fun in the backyard'),
       FactoryBot.create(:track,
                         :published,
-                        :with_tags,
                         title: 'bliss bar',
                         description: 'sleepy swingin'),
       FactoryBot.create(:track,
@@ -28,14 +25,8 @@ describe SearchService do
   it 'is searchable by title' do
     expect(SearchService.new('disco').search).to eq [tracks[1]]
   end
-  it 'is searchable by tags' do
-    expect(SearchService.new(tracks[2].tags.first).search).to eq [tracks[2]]
-  end
   it 'is searchable by description' do
     expect(SearchService.new('super fun').search).to eq [tracks[0]]
-  end
-  it 'is searchable by playlist' do
-    expect(SearchService.new('sex machine').search).to eq [tracks[0]]
   end
   it 'does not find unpublished works' do
     expect(SearchService.new('cannot').search).to be_empty
