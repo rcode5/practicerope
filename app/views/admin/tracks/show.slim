@@ -12,7 +12,7 @@
   dl
     dt.label Display Title
     dd.value
-      = @track.display_title
+      = @track.pretty_title
 
   dl
     dt.label Recorded on
@@ -23,6 +23,11 @@
     dt.label Description:
     dd.value.content.markup
       = markup (@track.description || '')
+
+  dl
+    dt.label Audio file:
+    dd.value.content.markup
+      = @track.audio.filename.to_s
 
 .controls.bottom
   = link_to_icon :edit, edit_admin_track_path(@track)
