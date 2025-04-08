@@ -3,8 +3,6 @@
 Rails.application.routes.draw do
   resources :tracks, only: %i[index show]
 
-  resources :tags, only: [:index], constraints: { format: /json/ }
-
   resources :about, only: [:index]
 
   resources :admin, only: :index

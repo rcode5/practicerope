@@ -22,7 +22,7 @@ class TrackFactory
   end
 
   def url
-    'http://s3.amazon.com/selectors_choice/rock_it.mp3'
+    'http://s3.amazon.com/practice_rope/rock_it.mp3'
   end
 
   def recorded_on

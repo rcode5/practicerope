@@ -5,11 +5,6 @@ require 'rails_helper'
 describe FeedController do
   render_views
 
-  before do
-    allow(SelectorsChoice::CloudFront).to receive(:new).and_return(
-      instance_double(SelectorsChoice::CloudFront, get_presigned_url: 'https://the-signed-url.com/'),
-    )
-  end
   describe '#show.xml' do
     let(:published_tracks) do
       [
@@ -36,7 +31,7 @@ describe FeedController do
         get :show, format: :xml
         xml_response = Nokogiri::XML(response.body)
 
-        expect(xml_response.xpath('//channel/title').text).to match 'Selectors Choice'
+        expect(xml_response.xpath('//channel/title').text).to match 'Practice Rope'
         expect(xml_response.xpath('//channel/pubDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
         expect(xml_response.xpath('//channel/lastBuildDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
         expect(xml_response.xpath('//channel/itunes:image').first.attributes['href'].value).to include(

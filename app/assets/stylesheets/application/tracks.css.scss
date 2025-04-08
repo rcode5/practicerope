@@ -47,7 +47,7 @@ h3 .author {
     font-weight: bold;
     background-color: darken($xlight_gray, 20);
     display: inline-block;
-    color: black;
+    color: $brown_68;
     width: 1.4em;
     height: 1.4em;
     line-height: 1.5;
@@ -55,7 +55,7 @@ h3 .author {
     text-shadow: rgba($light_gray, .8) 0px 1px 1px;
   }
   a {
-    color: $medium_gray;
+    color: $brown_c2;
     text-decoration: none;
     &:hover, &:focus {
       text-decoration: underline
@@ -64,17 +64,18 @@ h3 .author {
 }
 
 ul .track {
-  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
-  @include border-radius(15px);
-  background-color: rgba(30, 0, 30, 0.8);
   display:block;
   padding: 0 $block-padding;
   margin-top: $block-margin;
   margin-bottom: $block-margin;
-  border: 1px solid $dark_gray;
+  border-top: 1px solid $dark_gray;
   .hd {
+    a {
+      text-decoration: none;
+      color: $brown_68;
+    }
     .title {
-      padding: 8px 12px;
+      padding: 8px 0;
 //      background-color: $purple_background;
       @include border-radius(4px);
       margin-top: 18px;
@@ -89,12 +90,8 @@ ul .track {
   .ft {
     @include clearfix;
   }
-  .description, .tracklist {
+  .description {
     margin-top: 10px;
-//    color: $pink_gray;
-    h3 {
-  //    color: $dark_pink;
-    }
   }
   .description-header {
     display: flex;

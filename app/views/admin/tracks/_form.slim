@@ -1,8 +1,3 @@
-ruby:
-  all_tags = @track.tags
-  existing_styles = @track.styles
-  existing_tags = all_tags - existing_styles
-
 = simple_form_for([:admin,@track]) do |f|
   - if @track.errors.any?
 
@@ -27,6 +22,6 @@ ruby:
     - recorded_on = @track.recorded_on
     = text_field_tag :recorded_on_day, (recorded_on.present? ? recorded_on.strftime("%d %b, %Y") : ''), class: 'datepicker', placeholder: "Date"
     = text_field_tag :recorded_on_time, (recorded_on.present? ? recorded_on.strftime("%I:%M%p") : ''), class: 'timepicker', placeholder: "Time"
-  = f.input :filename, hint: "Filename on Amazon S3 without leading slash.", wrapper_html: { class: "admin-track-form__filename" }
+  = f.input :audio, { direct_upload: true }
   = f.input :published, hint: "If this is not checked, your stuff won't show up on the main page lists"
   = f.button :submit

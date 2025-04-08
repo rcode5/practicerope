@@ -4,8 +4,7 @@
 
 html, body {
   color: $brown_68;
-
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -76,6 +75,25 @@ header{
   }
 }
 
+a {
+//  color: $brown_68;
+}
+// unvisited
+a:link {
+  color: $brown_68;
+}
+/* visited link */
+a:visited {
+  color: darken($brown_68, .1);
+}
+/* mouse over link */
+a:hover {
+  color: lighten($brown_68, .1)
+}
+/* selected link */
+a:active {
+  color: lighten($brown_68, .2)
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
@@ -113,7 +131,7 @@ button.podcast-rss-feed-button {
   border: 1px solid $dark_gray;
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   @include border-radius(15px);
-  background-color: rgba(0,0,0,.6);
+  background-color: $light-gray;
   @include opacity(1);
   text-align: center;
   z-index: 20

@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require Rails.root.join('lib/cloud_front')
-
 class Track < ApplicationRecord
   validates :title, presence: true
-  validates :filename, presence: true
-  acts_as_taggable
-  acts_as_taggable_on :styles
+  validates :audio, attached: true, presence: true
 
   after_commit :reindex
 
@@ -15,16 +11,14 @@ class Track < ApplicationRecord
   scope :unpublished, -> { where(published: [nil, false]) }
 
   has_many :track_searches, dependent: :destroy
+  has_one_attached :audio
 
   def pretty_title
     display_title.presence || title
   end
 
   def signed_url
-    SelectorsChoice::CloudFront.new.get_presigned_url(
-      filename,
-      expires: Time.current + Rails.configuration.track_expiry_in_seconds.seconds,
-    )
+    audio.url
   end
 
   # search releated
@@ -37,6 +31,8 @@ class Track < ApplicationRecord
       "insert into track_searches(#{self.class.send(:search_fields).join(',')})" \
       "values #{to_search_values}",
     )
+  rescue ActiveRecord::StatementInvalid => e
+    Rails.logger.error "FAILED TO REINDEX #{e}"
   end
 
   def self.reindex_all
@@ -55,8 +51,6 @@ class Track < ApplicationRecord
     id: :track_id,
     title: :title,
     description: :description,
-    playlist: :playlist,
-    tags: :tags,
   }.freeze
 
   private_class_method def self.track_fields
@@ -71,11 +65,7 @@ class Track < ApplicationRecord
 
   def map_search_values
     self.class.send(:track_fields).map do |field|
-      if field == :tags
-        tag_list.map { |t| "\"#{t}\"" }.join(' ')
-      else
-        send(field)
-      end
+      send(field)
     end
   end
 
