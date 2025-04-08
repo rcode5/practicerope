@@ -22,6 +22,11 @@
     - recorded_on = @track.recorded_on
     = text_field_tag :recorded_on_day, (recorded_on.present? ? recorded_on.strftime("%d %b, %Y") : ''), class: 'datepicker', placeholder: "Date"
     = text_field_tag :recorded_on_time, (recorded_on.present? ? recorded_on.strftime("%I:%M%p") : ''), class: 'timepicker', placeholder: "Time"
-  = f.input :audio, { direct_upload: true }
+  - if @track.audio.attached?
+    label.track-form--filename
+      = "Audio: #{@track.audio.filename.to_s}"
+  - else
+    = f.input :audio, direct_upload: true, hint: "If you're editing this track, you don't need to re-upload the file even though this field might appear blank."
+
   = f.input :published, hint: "If this is not checked, your stuff won't show up on the main page lists"
   = f.button :submit
