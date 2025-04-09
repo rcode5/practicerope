@@ -58,17 +58,3 @@ $default-border-radius: 5px;
   -moz-box-shadow:    $x $y $blur $spread $color;
   box-shadow:         $x $y $blur $spread $color;
 }
-
-@mixin clearfix {
-    zoom:1;
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
-}
-

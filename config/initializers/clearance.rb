@@ -7,6 +7,6 @@ Clearance.configure do |config|
 end
 
 Rails.application.config.to_prepare do
-  Clearance::PasswordsController.layout 'session'
-  Clearance::SessionsController.layout 'session'
+  Clearance::PasswordsController.layout 'admin'
+  Clearance::SessionsController.layout 'admin'
 end

@@ -35,7 +35,7 @@ describe FeedController do
         expect(xml_response.xpath('//channel/pubDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
         expect(xml_response.xpath('//channel/lastBuildDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
         expect(xml_response.xpath('//channel/itunes:image').first.attributes['href'].value).to include(
-          'test.host/assets/podcast_image',
+          'test.host/images/podcast_image',
         )
       end
 

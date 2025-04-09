@@ -1,6 +1,6 @@
-@import "../imports/mixins";
-@import "../imports/colors";
-@import "../imports/dimensions";
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
 
 section.banner-image {
   display: flex;
@@ -10,7 +10,7 @@ section.banner-image {
   max-width: 80%;
   margin: auto;
 
-  @media screen and (min-width: $screen-sm-max) {
+  @media screen and (min-width: dimensions.$screen-sm-max) {
     max-width: 500px;
   }
 }

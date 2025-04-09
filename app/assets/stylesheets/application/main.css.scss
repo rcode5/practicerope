@@ -1,9 +1,9 @@
-@import "../imports/mixins";
-@import "../imports/colors";
-@import "../imports/dimensions";
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
 
 html, body {
-  color: $brown_68;
+  color: colors.$brown_68;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -11,10 +11,10 @@ html, body {
 }
 
 body {
-  @media screen and (max-width: $screen-lg-max) {
+  @media screen and (max-width: dimensions.$screen-lg-max) {
     background-size: initial;
   }
-  @media screen and (max-width: $screen-sm-max) {
+  @media screen and (max-width: dimensions.$screen-sm-max) {
     background-size: 90vw;
   }
 
@@ -35,12 +35,12 @@ ol, ul {
 // a:hover {text-decoration: underline; color: $light_pink;}
 
 footer, .container {
-  width: $width;
+  width: dimensions.$width;
   max-width: 95%;
   margin: auto;
-  @media screen and (min-width: $screen-md-max) {
-    max-width: $max-width;
-    min-width: $min-width;
+  @media screen and (min-width: dimensions.$screen-md-max) {
+    max-width: dimensions.$max-width;
+    min-width: dimensions.$min-width;
   }
 }
 footer {
@@ -51,7 +51,7 @@ footer {
     padding-left: 10px;
     padding-right: 10px;
     font-size: x-small;
-    border-left: 1px solid $light_gray;
+    border-left: 1px solid colors.$light_gray;
   }
   span:last-child {
     margin-right:10px;
@@ -71,28 +71,28 @@ header{
   justify-content: space-between;
   align-items: flex-start;
   .home {
-    height: $header_offset;
+    height: dimensions.$header_offset;
   }
 }
 
 a {
-//  color: $brown_68;
+//  color: colors.$brown_68;
 }
 // unvisited
 a:link {
-  color: $brown_68;
+  color: colors.$brown_68;
 }
 /* visited link */
 a:visited {
-  color: darken($brown_68, .1);
+  color: darken(colors.$brown_68, .1);
 }
 /* mouse over link */
 a:hover {
-  color: lighten($brown_68, .1)
+  color: lighten(colors.$brown_68, .1)
 }
 /* selected link */
 a:active {
-  color: lighten($brown_68, .2)
+  color: lighten(colors.$brown_68, .2)
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -123,16 +123,15 @@ button.podcast-rss-feed-button {
 
 .flash {
   position: fixed;
-  width: $max-width;
-  padding: $block-padding;
-  margin: $block-margin;
+  width: dimensions.$max-width;
+  padding: dimensions.$block-padding;
+  margin:  dimensions.$block-margin;
   cursor: default;
-  @include clearfix;
-  border: 1px solid $dark_gray;
-  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
-  @include border-radius(15px);
-  background-color: $light-gray;
-  @include opacity(1);
+  border: 1px solid colors.$dark_gray;
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius(15px);
+  background-color: colors.$light-gray;
+  @include mixins.opacity(1);
   text-align: center;
   z-index: 20
 

@@ -39,14 +39,14 @@ feature 'Admin' do
       expect(page).to have_content "Audio can't be blank"
 
       fill_in :track_title, with: 'track with recorded time'
-      fill_in_datepicker(:recorded_on_day, with: '2020-10-10')
+      fill_in :recorded_on_day, with: '10/02/2020'
       fill_in :recorded_on_time, with: '2:00pm'
       attach_file 'Audio', fixture_path('dummy.mp3')
 
       click_on 'Create Track'
 
       expect(page).to have_content 'track with recorded time (draft)'
-      expect(page).to have_content '2020-10-10'
+      expect(page).to have_content '2020-10-02'
     end
   end
 end

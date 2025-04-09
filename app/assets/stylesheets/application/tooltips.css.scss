@@ -1,6 +1,6 @@
-@import "../imports/mixins";
-@import "../imports/colors";
-@import "../imports/dimensions";
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
 
 a.tooltip {
   outline:none;
@@ -15,9 +15,9 @@ a.tooltip:hover {
   text-decoration:none;
 }
 a.tooltip:hover:after {
-  background: $medium_dark_gray;
-  @include border-radius(4px);
-  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  background: colors.$medium_dark_gray;
+  @include mixins.border-radius(4px);
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
   color: #fff;
   content: attr(title);
   padding: 5px 15px;

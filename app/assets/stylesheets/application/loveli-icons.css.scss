@@ -5,10 +5,10 @@
    overflow: hidden;
    background-repeat: no-repeat;
    background-color: transparent;
-   background-image: asset-url("loveli-icons.png");
+   background-image: url("../../images/loveli-icons.png");
 }
 .icon.black {
-   background-image: asset-url("loveli-icons-black.png");
+   background-image: url("../../images/loveli-icons-black.png");
 }
 
 $row_offset: -41px;
