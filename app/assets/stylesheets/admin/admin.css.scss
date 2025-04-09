@@ -1,8 +1,8 @@
 // /* admin */
-@import '../imports/mixins';
-@import '../imports/colors';
-@import '../imports/dimensions';
-@import '../application/loveli-icons.css.scss';
+@use '../imports/mixins';
+@use '../imports/colors';
+@use '../imports/dimensions';
+@use '../application/loveli-icons.css.scss';
 
 header.container-fluid {
   border-bottom: 1px solid $light-gray;

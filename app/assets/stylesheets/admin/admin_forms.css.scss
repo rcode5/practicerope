@@ -1,13 +1,11 @@
 
-@import '../imports/mixins';
-@import '../imports/colors';
-@import '../imports/dimensions';
+@use '../imports/colors';
 
 .simple_form, form {
   span.hint {
     margin-top: 4px;
     display: block;
-    color: $medium_gray;
+    color: colors.$medium_gray;
     font-size: small;
   }
   .input {
@@ -15,6 +13,6 @@
   }
 }
 #error_explanation {
-  color: $dark-red;
+  color: colors.$dark-red;
 }
 

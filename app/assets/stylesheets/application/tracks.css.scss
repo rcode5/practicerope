@@ -1,22 +1,21 @@
-@import "../imports/mixins";
-@import "../imports/colors";
-@import "../imports/dimensions";
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
 
 h3 .author {
   letter-spacing: 0px;
 }
 .tagged, .apple_pagination {
-  padding: $block-padding;
+  padding: dimensions.$block-padding;
   margin-top: 8px;
   margin-bottom: 0;
   cursor: default;
-  @include clearfix;
 }
 
 .tagged, .apple_pagination {
-  border: 1px solid $dark_gray;
-  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
-  @include border-radius(15px);
+  border: 1px solid colors.$dark_gray;
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius(15px);
   background-color: rgba(30, 0, 30, 0.8);
   text-align: center;
 }
@@ -26,7 +25,6 @@ h3 .author {
 
 .tagged {
   .label {
-//    color: $gray_pink;
     text-transform: uppercase;
   }
   .icon.icon-delete {
@@ -40,22 +38,22 @@ h3 .author {
     padding: 0.2em 0.3em;
   }
   .disabled {
-    color: #aaaaaa;
+    color: colors.$light_gray
   }
   .current {
     font-style: normal;
     font-weight: bold;
-    background-color: darken($xlight_gray, 20);
+    background-color: darken(colors.$xlight_gray, 20);
     display: inline-block;
-    color: $brown_68;
+    color: colors.$brown_68;
     width: 1.4em;
     height: 1.4em;
     line-height: 1.5;
-    @include border-radius(0.2em);
-    text-shadow: rgba($light_gray, .8) 0px 1px 1px;
+    @include mixins.border-radius(0.2em);
+    text-shadow: rgba(colors.$light_gray, .8) 0px 1px 1px;
   }
   a {
-    color: $brown_c2;
+    color: colors.$brown_c2;
     text-decoration: none;
     &:hover, &:focus {
       text-decoration: underline
@@ -65,19 +63,19 @@ h3 .author {
 
 ul .track {
   display:block;
-  padding: 0 $block-padding;
-  margin-top: $block-margin;
-  margin-bottom: $block-margin;
-  border-top: 1px solid $dark_gray;
+  padding: 0 dimensions.$block-padding;
+  margin-top: dimensions.$block-margin;
+  margin-bottom: dimensions.$block-margin;
+  border-top: 1px solid colors.$dark_gray;
   .hd {
     a {
       text-decoration: none;
-      color: $brown_68;
+      color: colors.$brown_68;
     }
     .title {
       padding: 8px 0;
 //      background-color: $purple_background;
-      @include border-radius(4px);
+      @include mixins.border-radius(4px);
       margin-top: 18px;
       font-size: 180%;
       text-transform: uppercase;
@@ -86,9 +84,6 @@ ul .track {
   .bd, .ft {
     position: relative;
     margin-top: 10px;
-  }
-  .ft {
-    @include clearfix;
   }
   .description {
     margin-top: 10px;
@@ -102,7 +97,6 @@ ul .track {
     font-weight: 100;
     text-transform: uppercase;
     letter-spacing: -1px;
-//    color: $dark_pink;
   }
   .tags {
     display: flex;
@@ -115,12 +109,9 @@ ul .track {
   .tags, .styles {
     line-height: 1.5em;
     margin-bottom: 10px;
-    h5 {
-//      color: $dark_pink;
-    }
     a.tag {
       font-size: 80%;
-      color: $xlight_gray;
+      color: colors.$xlight_gray;
     }
   }
   .load-audio {
@@ -145,12 +136,11 @@ ul .track {
       margin-left: 0
     }
   .tag {
-    @include border-radius(4px);
+    @include mixins.border-radius(4px);
     font-size: 14px;
     padding: 4px 9px;
     margin: 5px;
-    border: 1px solid $dark_gray;
-//    background-color: $purple_background;
+    border: 1px solid colors.$dark_gray;
     display: inline-block;
   }
 
@@ -161,18 +151,18 @@ ul .track {
 }
 
 .audiojs {
-  @include border-radius(10px);
-  @include opacity(0.9);
-  @include drop-shadow(0, 0, 3px, 1px, #646);
+  @include mixins.border-radius(10px);
+  @include mixins.opacity(0.9);
+  @include mixins.drop-shadow(0, 0, 3px, 1px, #646);
   width: 350px;
   .scrubber {
     width: 180px;
-    @include border-radius(3px);
+    @include mixins.border-radius(3px);
     .progress {
-      @include gradient(#969, #747);
+      @include mixins.gradient(#969, #747);
     }
   }
-  @include gradient(#202, #504);
+  @include mixins.gradient(#202, #504);
   .time {
     em, strong {
       font-family: helvetica, sans-serif;

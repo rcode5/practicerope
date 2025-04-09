@@ -1,11 +1,11 @@
-@import "../imports/colors";
+@use "../imports/colors";
 
 .search-actions {
   input {
     border: 0;
     font-size: 50px;
-    color: $brown_68;
-    border-bottom: 1px solid $brown_c2;
+    color: colors.$brown_68;
+    border-bottom: 1px solid colors.$brown_c2;
     ::placeholder {
     }
   }
