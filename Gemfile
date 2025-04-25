@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 ruby '3.1.3'
 
+gem 'active_storage_validations'
 gem 'acts-as-taggable-on'
 gem 'addressable'
 gem 'aws-sdk-cloudfront'
@@ -29,12 +30,12 @@ group :development do
   gem 'binding_of_caller'
   gem 'capistrano', require: false
   gem 'capistrano3-puma', require: false
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
 end
 
 group :development, :test do
-  gem 'active_storage_validations'
   gem 'bundle-audit'
   gem 'climate_control'
   gem 'factory_bot'

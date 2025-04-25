@@ -20,7 +20,7 @@ coverage/
 
 /config/master.key
 
-/config/credentials/test.key
+/config/credentials/*.key
 
 /storage
 

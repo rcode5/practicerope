@@ -19,6 +19,10 @@ server 'mau.rcode5.com',
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 # set :branch, 'main'
 
+append :linked_files, 'config/credentials/production.yml.enc',
+       'config/credentials/production.key',
+       'practice_rope_production.sqlite3'
+
 set :deploy_to, '/home/deploy/deployed/practicerope'
 set :puma_systemctl_user, :system # For capistrano-puma - should force sudo
 set :puma_service_unit_name, 'puma-practicerope'
