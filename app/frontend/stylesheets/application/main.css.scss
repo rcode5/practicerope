@@ -1,10 +1,11 @@
 @use "../imports/mixins";
 @use "../imports/colors";
 @use "../imports/dimensions";
+@use "sass:color";
 
 html, body {
   color: colors.$brown_68;
-  font-family: "Quicksand", sans-serif;
+  font-family: Quicksand, sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -14,6 +15,7 @@ body {
   @media screen and (max-width: dimensions.$screen-lg-max) {
     background-size: initial;
   }
+
   @media screen and (max-width: dimensions.$screen-sm-max) {
     background-size: 90vw;
   }
@@ -24,6 +26,7 @@ ol, ul {
   list-style: none;
   margin:0;
   padding: 0;
+
   li {
     margin:0;
     padding: 0;
@@ -38,38 +41,47 @@ footer, .container {
   width: dimensions.$width;
   max-width: 95%;
   margin: auto;
+
   @media screen and (min-width: dimensions.$screen-md-max) {
     max-width: dimensions.$max-width;
     min-width: dimensions.$min-width;
   }
 }
+
 footer {
   margin-top: 40px;
   margin-bottom: 40px;
   text-align:right;
+
   span {
     padding-left: 10px;
     padding-right: 10px;
     font-size: x-small;
     border-left: 1px solid colors.$light_gray;
   }
+
   span:last-child {
     margin-right:10px;
   }
+
   span:first-child {
     border-left: 0;
   }
 }
+
 body, .container {
   min-height: 570px;
 }
+
 .container {
   min-height: 570px;
 }
+
 header{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   .home {
     height: dimensions.$header_offset;
   }
@@ -78,21 +90,25 @@ header{
 a {
 //  color: colors.$brown_68;
 }
+
 // unvisited
 a:link {
   color: colors.$brown_68;
 }
+
 /* visited link */
 a:visited {
-  color: darken(colors.$brown_68, .1);
+  color: color.adjust(colors.$brown_68, $lightness: -10%);
 }
+
 /* mouse over link */
 a:hover {
-  color: lighten(colors.$brown_68, .1)
+  color: color.adjust(colors.$brown_68, $lightness: 10%);
 }
+
 /* selected link */
 a:active {
-  color: lighten(colors.$brown_68, .2)
+  color: color.adjust(colors.$brown_68, $lightness: +20%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -100,6 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   letter-spacing: -1px;
 }
+
 h4, h5, h6 {
   letter-spacing: inherit;
 }
@@ -109,6 +126,7 @@ nav.site-nav {
   display: flex;
   justify-content: center;
   align-items: center;
+
   .site-nav__entry {
     margin-right: 2px;
     display: flex;
@@ -128,10 +146,14 @@ button.podcast-rss-feed-button {
   margin:  dimensions.$block-margin;
   cursor: default;
   border: 1px solid colors.$dark_gray;
+
   @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
   @include mixins.border-radius(15px);
+
   background-color: colors.$light-gray;
+
   @include mixins.opacity(1);
+
   text-align: center;
   z-index: 20
 

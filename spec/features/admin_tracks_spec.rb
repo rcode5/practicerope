@@ -35,7 +35,7 @@ feature 'Admin' do
 
       click_on 'Create Track'
 
-      expect(page).to have_content 'prohibited this track from being saved'
+      expect(page).to have_content "couldn't save that track"
       expect(page).to have_content "Audio can't be blank"
 
       fill_in :track_title, with: 'track with recorded time'

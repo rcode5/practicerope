@@ -1,0 +1,195 @@
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
+@use "sass:color";
+
+h3 .author {
+  letter-spacing: 0;
+}
+
+.tagged, .apple_pagination {
+  padding: dimensions.$block-padding;
+  margin-top: 8px;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.tagged, .apple_pagination {
+  border: 1px solid colors.$dark_gray;
+
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius(15px);
+
+  background-color: rgb(30 0 30 / 80%);
+  text-align: center;
+}
+
+.apple_pagination {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.tagged {
+  .label {
+    text-transform: uppercase;
+  }
+
+  .icon.icon-delete {
+    opacity: 0.7;
+    float: right;
+  }
+
+}
+
+.apple_pagination {
+  a, span {
+    padding: 0.2em 0.3em;
+  }
+
+  .disabled {
+    color: colors.$light_gray
+  }
+
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: color.adjust(colors.$xlight_gray, $lightness: -20%);
+    display: inline-block;
+    color: colors.$brown_68;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+
+    @include mixins.border-radius(0.2em);
+
+    text-shadow: rgba(colors.$light_gray, .8) 0 1px 1px;
+  }
+
+  a {
+    color: colors.$brown_c2;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      text-decoration: underline
+    }
+  }
+}
+
+.tracks {
+  .track {
+    display:block;
+    padding: 0 dimensions.$block-padding;
+    margin-top: dimensions.$block-margin;
+    margin-bottom: dimensions.$block-margin;
+    border-top: 1px solid colors.$brown_68;
+
+    .hd {
+      a {
+        text-decoration: none;
+        color: colors.$brown_68;
+      }
+
+      .title {
+        padding: 8px 0;
+
+        //      background-color: $purple_background;
+        @include mixins.border-radius(4px);
+
+        margin-top: 18px;
+        font-size: 180%;
+        text-transform: uppercase;
+      }
+    }
+
+    .bd, .ft {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .description {
+      margin-top: 10px;
+    }
+
+    .description-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .description-header__title, .description-header__author {
+      font-weight: 100;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      h5 {
+        margin: 7px 10px 15px 0;
+      }
+    }
+
+    .tags, .styles {
+      line-height: 1.5em;
+      margin-bottom: 10px;
+
+      a.tag {
+        font-size: 80%;
+        color: colors.$xlight_gray;
+      }
+    }
+
+    .load-audio {
+      cursor: pointer;
+    }
+    h5, h6 { display:inline-block}
+
+    .download, .load-audio {
+      font-size: 18px;
+    }
+
+    .download {
+      position: absolute;
+      top: 5px;
+      right: 0;
+
+      .icon {
+        text-align: bottom;
+      }
+    }
+  }
+
+  .track, .tagged {
+    a:first-of-type {
+      margin-left: 0
+    }
+
+    .tag {
+      @include mixins.border-radius(4px);
+
+      font-size: 14px;
+      padding: 4px 9px;
+      margin: 5px;
+      border: 1px solid colors.$dark_gray;
+      display: inline-block;
+    }
+  }
+}
+
+.audio .pre-audio {
+  width: 400px;
+}
+
+.markup {
+  line-height: 1.3em;
+
+  li {
+    line-height: 1.6em;
+  }
+
+  ul li:nth-child(2n) {
+    background-color: rgb(255 240 240 / 10%);
+  }
+}
