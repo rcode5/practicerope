@@ -2,9 +2,8 @@
   - if @track.errors.any?
 
     #error_explanation
-      h2
-        = pluralize(@track.errors.count, "error")
-        | prohibited this track from being saved:
+      h3
+        | We couldn't save that track
 
       ul
         - @track.errors.full_messages.each do |msg|

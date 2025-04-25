@@ -12,7 +12,7 @@ xml.rss('version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/',
     xml.lastBuildDate @last_build_date.rfc822
     xml.itunes :author, 'Practice Rope'
     xml.itunes :explicit, 'clean'
-    xml.itunes :image, href: image_url('podcast_image.png')
+    xml.itunes :image, href: vite_asset_url('images/podcast_image.png')
     xml.itunes :owner do
       xml.itunes :name, 'Practice Rope'
     end

@@ -26,9 +26,7 @@ import $ from 'jquery'
 import '../../../vendor/assets/javascripts/jquery.timepicker';
 
 // stylesheets
-import '../../assets/stylesheets/application/loveli-icons.css.scss';
-import '../../../vendor/assets/stylesheets/jquery.timepicker.css';
-import '../../assets/stylesheets/admin/admin_forms.css.scss'
+import '../stylesheets/admin/admin.css.scss';
 
 $(function() {
   $('.timepicker').timepicker()

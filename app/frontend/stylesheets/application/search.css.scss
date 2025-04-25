@@ -6,23 +6,25 @@
     font-size: 50px;
     color: colors.$brown_68;
     border-bottom: 1px solid colors.$brown_c2;
-    ::placeholder {
-    }
   }
 }
 
 .search-actions + .search-results {
   margin-top: 40px;
 }
+
 .search-results--table {
   border-spacing: 0;
   border: 0;
+
   td {
     padding: 20px;
   }
 }
 
 .search-results {
+  font-size: initial;
+  width: 100%;
 
   .nothing {
     display: flex;
@@ -32,21 +34,20 @@
       text-align: left;
       margin-top: 0;
     }
-    > * {
 
+    > * {
       flex: 3
     }
+
     .oops {
       flex: 1;
       font-size: initial;
     }
-    font-size: initial;
-    width: 100%;
   }
 }
 
 .search-result {
   &:nth-child(odd) {
-    background: rgba(255,240,240,0.45);
+    background: rgb(255 240 240 / 45%);
   }
 }

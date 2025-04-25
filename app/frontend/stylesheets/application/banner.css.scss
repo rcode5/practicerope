@@ -14,12 +14,14 @@ section.banner-image {
     max-width: 500px;
   }
 }
+
 .banner-image--image + .banner-image--title {
   margin-top: 30px;
 }
 
 .banner-image--title {
   max-width: 60%;
+
   img {
     max-width: 100%;
   }

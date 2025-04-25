@@ -1,0 +1,28 @@
+// /* admin */
+@use '../imports/mixins';
+@use '../imports/colors';
+@use '../imports/dimensions';
+@use '../application/loveli-icons.css';
+
+@use '../../../../vendor/assets/stylesheets/jquery.timepicker.css';
+
+footer {
+  border-top: 1px solid colors.$brown_c2;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  font-size: small;
+}
+
+#error_explanation {
+  color: colors.$dark-red;
+}
+
+.admin-site-nav__logo {
+  max-width: 80px;
+}
+.flash {
+  &.error, &.alert {
+    color: colors.$dark-red;
+  }
+}

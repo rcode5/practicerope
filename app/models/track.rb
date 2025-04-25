@@ -2,7 +2,7 @@
 
 class Track < ApplicationRecord
   validates :title, presence: true
-  validates :audio, attached: true, presence: true
+  validates :audio, attached: true
 
   after_commit :reindex
 

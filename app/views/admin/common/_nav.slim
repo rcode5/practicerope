@@ -2,6 +2,8 @@ nav.admin-site-nav
 
   - if signed_in?
     ul
+      li.admin-site-nav__logo
+        img src=vite_asset_path('images/practice_rope_rope.png')
       li.admin-site-nav__item
         a href=root_path = "site"
       - links = [['dashboard', admin_index_path], ['tracks', admin_tracks_path]]
