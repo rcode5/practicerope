@@ -21,6 +21,8 @@ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 append :linked_files, 'config/credentials/production.yml.enc',
        'config/credentials/production.key',
+       'config/credentials/acceptance.yml.enc',
+       'config/credentials/acceptance.key',
        'practice_rope_production.sqlite3'
 
 set :deploy_to, '/home/deploy/deployed/practicerope'

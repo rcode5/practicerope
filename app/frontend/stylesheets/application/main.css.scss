@@ -1,6 +1,8 @@
 @use "../imports/mixins";
 @use "../imports/colors";
 @use "../imports/dimensions";
+@use '../imports/zindeces';
+
 @use "sass:color";
 
 html, body {
@@ -155,8 +157,7 @@ button.podcast-rss-feed-button {
   @include mixins.opacity(1);
 
   text-align: center;
-  z-index: 20
-
+  z-index: zindeces.$flash;
 }
 
 .ie {

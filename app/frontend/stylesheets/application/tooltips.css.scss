@@ -1,6 +1,8 @@
 @use "../imports/mixins";
 @use "../imports/colors";
 @use "../imports/dimensions";
+@use '../imports/zindeces';
+
 
 a.tooltip {
   outline:none;
@@ -27,7 +29,7 @@ a.tooltip:hover::after {
   content: attr(title);
   padding: 5px 15px;
   position: absolute;
-  z-index: 10;
+  z-index: zindeces.$tooltip;
   display: block;
 }
 

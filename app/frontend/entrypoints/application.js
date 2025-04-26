@@ -23,6 +23,9 @@ console.log('Vite ⚡️ Rails')
 // // Import all channels.
 // const channels = import.meta.globEager('./**/*_channel.js')
 
+import Rails from '@rails/ujs';
+Rails.start();
+
 import '../javascripts/onload.js';
 import '../javascripts/podcastButton.js';
 

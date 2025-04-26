@@ -4,8 +4,8 @@
 lock '~> 3.19.1'
 
 set :default_env, {
-    RBENV_ROOT: fetch(:rbenv_path),
-    RBENV_VERSION: fetch(:rbenv_ruby)
+  RBENV_ROOT: fetch(:rbenv_path),
+    RBENV_VERSION: fetch(:rbenv_ruby),
 }
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
@@ -17,7 +17,7 @@ set :rbenv_roles, :all # default value
 
 set :nvm_type, :user # or :system, depends on your nvm setup
 set :nvm_node, 'versions/node/v22.15.0'
-set :nvm_map_bins, %w{node npm yarn yarnpkg rake}
+set :nvm_map_bins, %w[node npm yarn yarnpkg rake]
 
 set :application, 'practice_rope'
 set :repo_url, 'git@github.com:rcode5/practicerope.git' # 'git@example.com:me/my_repo.git'
@@ -42,7 +42,6 @@ set :repo_url, 'git@github.com:rcode5/practicerope.git' # 'git@example.com:me/my
 append :linked_files, 'config/database.yml',
        'config/puma.rb'
 
-
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids",
 #    "tmp/cache", "tmp/sockets", "tmp/webpacker",
@@ -63,14 +62,4 @@ set :rails_env, (fetch(:rails_env) || fetch(:stage))
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-
-namespace :deploy do
-  before :"assets:precompile", :inspect do
-    on roles(:all) do
-      execute :which, :yarn
-      execute :echo, '$PATH'
-    end
-  end
-end
-
-Rake::Task["deploy:assets:backup_manifest"].clear_actions
+Rake::Task['deploy:assets:backup_manifest'].clear_actions
