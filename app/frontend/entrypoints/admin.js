@@ -18,6 +18,10 @@
 //
 import * as ActiveStorage from '@rails/activestorage'
 ActiveStorage.start()
+
+import Rails from '@rails/ujs';
+Rails.start();
+
 //
 // // Import all channels.
 // const channels = import.meta.globEager('./**/*_channel.js')

@@ -3,6 +3,8 @@
 @use '../imports/colors';
 @use '../imports/dimensions';
 @use '../application/loveli-icons.css';
+@use '../imports/zindeces';
+@use 'sass:color';
 
 @use '../../../../vendor/assets/stylesheets/jquery.timepicker.css';
 
@@ -21,7 +23,30 @@ footer {
 .admin-site-nav__logo {
   max-width: 80px;
 }
+
+
 .flash {
+  position: fixed;
+  max-width: dimensions.$max-width;
+  padding: dimensions.$block-padding;
+  cursor: default;
+  border: 1px solid colors.$brown_f3;
+  border-top: 0;
+  top: 0;
+  left: 20%;
+  right: 20%;
+
+
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius-bottom(4px);
+
+  background-color: color.adjust(colors.$brown_f3, $lightness: 10%);
+
+  @include mixins.opacity(1);
+
+  text-align: center;
+  z-index: zindeces.$flash;
+
   &.error, &.alert {
     color: colors.$dark-red;
   }

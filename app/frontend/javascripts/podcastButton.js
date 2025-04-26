@@ -13,7 +13,7 @@ const setupPodcastButton = (el) => {
       navigator.clipboard.writeText( url );
       alert("Now that you copied the podcast url on your clipboard,\nyou can paste that into your favorite podcast app and start listening!");
     } else {
-      alert(`Copy and paste this url ${feedUrl} into your favorite podcast app!`)
+      alert(`Copy and paste this url ${url} into your favorite podcast app!`)
     }
   });
 }

@@ -13,3 +13,11 @@ nav.admin-site-nav
           = link_to name, path
       li.admin-site-nav__item
         = link_to 'sign out', sign_out_path, method: :delete
+  - else
+    ul
+      li.admin-site-nav__logo
+        img src=vite_asset_path('images/practice_rope_rope.png')
+      li.admin-site-nav__item
+        a href=root_path = "site"
+      li.admin-site-nav__item
+        = link_to 'sign in', sign_in_path

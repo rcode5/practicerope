@@ -9,4 +9,5 @@ end
 Rails.application.config.to_prepare do
   Clearance::PasswordsController.layout 'admin'
   Clearance::SessionsController.layout 'admin'
+  Clearance::UsersController.layout 'admin'
 end

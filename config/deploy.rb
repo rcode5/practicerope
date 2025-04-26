@@ -3,12 +3,21 @@
 # config valid for current version and patch releases of Capistrano
 lock '~> 3.19.1'
 
+set :default_env, {
+  RBENV_ROOT: fetch(:rbenv_path),
+    RBENV_VERSION: fetch(:rbenv_ruby),
+}
+
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_prefix,
-    "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+    "#{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w[rake gem bundle ruby rails puma pumactl]
 set :rbenv_roles, :all # default value
+
+set :nvm_type, :user # or :system, depends on your nvm setup
+set :nvm_node, 'versions/node/v22.15.0'
+set :nvm_map_bins, %w[node npm yarn yarnpkg rake]
 
 set :application, 'practice_rope'
 set :repo_url, 'git@github.com:rcode5/practicerope.git' # 'git@example.com:me/my_repo.git'
@@ -31,11 +40,7 @@ set :repo_url, 'git@github.com:rcode5/practicerope.git' # 'git@example.com:me/my
 
 # Default value for :linked_files is []
 append :linked_files, 'config/database.yml',
-       'config/credentials.yml.enc',
-       'config/master.key',
-       'config/puma.rb',
-       'practice_rope_production.sqlite3',
-       'aws_cf_private_key.pem'
+       'config/puma.rb'
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids",
@@ -56,3 +61,5 @@ set :rails_env, (fetch(:rails_env) || fetch(:stage))
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+Rake::Task['deploy:assets:backup_manifest'].clear_actions
