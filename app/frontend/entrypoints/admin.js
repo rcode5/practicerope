@@ -28,6 +28,7 @@ Rails.start();
 
 import $ from 'jquery'
 import '../../../vendor/assets/javascripts/jquery.timepicker';
+import '../javascripts/onload';
 
 // stylesheets
 import '../stylesheets/admin/admin.css.scss';
