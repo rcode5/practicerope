@@ -1,0 +1,31 @@
+
+@use '../imports/mixins';
+@use '../imports/colors';
+@use '../imports/dimensions';
+@use '../application/loveli-icons.css';
+@use '../imports/zindeces';
+@use 'sass:color';
+
+.flash {
+  position: fixed;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 5px;
+  cursor: default;
+  border-bottom: 1px solid colors.$brown_f3;
+  top: 0;
+  left: 0;
+
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+
+  background-color: color.adjust(colors.$brown_f3, $lightness: 10%);
+
+  @include mixins.opacity(.9);
+
+  text-align: center;
+  z-index: zindeces.$flash;
+
+  &.error, &.alert {
+    color: colors.$dark-red;
+  }
+}
