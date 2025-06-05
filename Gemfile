@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.1.3'
+ruby '3.3.6'
 
 gem 'active_storage_validations'
 gem 'acts-as-taggable-on'
@@ -17,7 +17,7 @@ gem 'jquery-rails'
 gem 'listen'
 gem 'postmark-rails'
 gem 'puma'
-gem 'rails', '~> 7.1.x'
+gem 'rails', '~> 8.0.x'
 gem 'rdiscount'
 gem 'simple_form'
 gem 'slim'
