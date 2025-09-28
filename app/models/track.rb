@@ -13,6 +13,9 @@ class Track < ApplicationRecord
   has_many :track_searches, dependent: :destroy
   has_one_attached :audio
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   def pretty_title
     display_title.presence || title
   end
