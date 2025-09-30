@@ -4,7 +4,7 @@ xml.rss('version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/',
         'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd') do
   xml.channel do
     xml.title 'Practice Rope'
-    xml.link 'https://practicerope.bunnymatic.com/'
+    xml.link 'https://www.practicerope.com/'
     xml.description 'Practice Rope'
     xml.language 'en-us'
     xml.ttl '4000'
@@ -26,7 +26,7 @@ xml.rss('version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/',
         xml.description(track.description)
         xml.pubDate((track.recorded_on || track.created_at).rfc822)
         xml.guid(track.signed_url)
-        xml.link("https://practicerope.bunnymatic.com/#{track_path(track)}")
+        xml.link("https://www.practicerope.com/#{track_path(track)}")
         xml.enclosure(url: track.signed_url, type: 'audio/mpeg')
         xml.tag!('dc:creator', track.author)
       end
