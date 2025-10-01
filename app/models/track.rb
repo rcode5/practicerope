@@ -6,7 +6,7 @@ class Track < ApplicationRecord
 
   after_commit :reindex
 
-  scope :by_recency, -> { order('recorded_on desc, updated_at desc') }
+  scope :by_recency, -> { order(recorded_on: :desc, updated_at: :desc) }
   scope :published, -> { where(published: true) }
   scope :unpublished, -> { where(published: [nil, false]) }
 
@@ -14,6 +14,7 @@ class Track < ApplicationRecord
   has_one_attached :audio
 
   extend FriendlyId
+
   friendly_id :title, use: :slugged
 
   def pretty_title
@@ -40,7 +41,7 @@ class Track < ApplicationRecord
 
   def self.reindex_all
     connection.execute 'delete from track_searches'
-    return unless all.published.count.positive?
+    return unless all.published.any?
 
     search_values = all.published.map { |t| t.send(:to_search_values) }
 
