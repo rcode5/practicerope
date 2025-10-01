@@ -1,5 +1,4 @@
 CREATE TABLE IF NOT EXISTS "taggings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_type" varchar, "taggable_id" integer, "tagger_type" varchar, "tagger_id" integer, "context" varchar(128), "created_at" datetime);
-CREATE TABLE sqlite_sequence(name,seq);
 CREATE INDEX "index_taggings_on_context" ON "taggings" ("context");
 CREATE UNIQUE INDEX "taggings_idx" ON "taggings" ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type");
 CREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id");
@@ -29,7 +28,8 @@ FOREIGN KEY ("blob_id")
   REFERENCES "active_storage_blobs" ("id")
 );
 CREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest");
-CREATE TABLE IF NOT EXISTS "tracks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "display_title" varchar, "description" text, "recorded_on" datetime, "created_at" datetime, "updated_at" datetime, "author" varchar, "published" boolean);
+CREATE TABLE IF NOT EXISTS "tracks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "display_title" varchar, "description" text, "recorded_on" datetime, "created_at" datetime, "updated_at" datetime, "author" varchar, "published" boolean, "slug" varchar /*application='PracticeRope'*/);
+CREATE UNIQUE INDEX "index_tracks_on_slug" ON "tracks" ("slug") /*application='PracticeRope'*/;
 CREATE VIRTUAL TABLE track_searches using fts5(title, description, track_id)
 /* track_searches(title,description,track_id) */;
 CREATE TABLE IF NOT EXISTS 'track_searches_data'(id INTEGER PRIMARY KEY, block BLOB);
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS 'track_searches_content'(id INTEGER PRIMARY KEY, c0, 
 CREATE TABLE IF NOT EXISTS 'track_searches_docsize'(id INTEGER PRIMARY KEY, sz BLOB);
 CREATE TABLE IF NOT EXISTS 'track_searches_config'(k PRIMARY KEY, v) WITHOUT ROWID;
 INSERT INTO "schema_migrations" (version) VALUES
+('20250928160440'),
 ('20250408194132'),
 ('20250406021648'),
 ('20220602152546'),
