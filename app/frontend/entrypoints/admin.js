@@ -29,20 +29,16 @@ Rails.start();
 import $ from 'jquery'
 import '../../../vendor/assets/javascripts/jquery.timepicker';
 import '../javascripts/onload';
+import '../javascripts/timepicker'
+import "../javascripts/flash"
 
 // stylesheets
 import '../stylesheets/admin/admin.css.scss';
 
+
 $(function() {
-  $('.timepicker').timepicker()
-  $('.text_copy').bind('click', function() {
-    $(this).select()
+  $('.text_copy').on('click', function() {
+    $(this).trigger('select');
   });
-
-  $('#notice').bind('click', function() {
-    $(this).fadeOut()
-  })
-
-  setTimeout(function() { $('#notice').fadeOut() }, 3500)
 });
 

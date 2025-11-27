@@ -5,11 +5,11 @@ nav.site-nav
     = link_to_text 'search', search_path
   .site-nav__item
     = link_to_text 'about', about_index_path
+  .site-nav__item
+    = link_to_text 'podcast', '#', title:"copy podcast/rss feed url", class:'tooltip tooltip--under podcast-rss-feed-button', "data-feed-url":feed_url
   - if signed_in?
     .site-nav__item
       = link_to_text 'dashboard', admin_index_path
     .site-nav__item
       = link_to_text 'sign out', sign_out_path, method: :delete
-  .site-nav__item
-    = link_to_dark_icon 'feed', '#', title:"copy podcast/rss feed url", class:'tooltip tooltip--under podcast-rss-feed-button', "data-feed-url":feed_url
 

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {trackEvent} from './analytics';
 
 // for the podcast button, we
 // want to copy the link and tell the user to put that
@@ -8,6 +9,8 @@ import $ from 'jquery';
 const setupPodcastButton = (el) => {
   $(el).on('click', (event) => {
     event.preventDefault()
+
+    trackEvent('rss_click')
     const url = $(el).data('feedUrl')
     if (navigator && navigator.clipboard && navigator.clipboard.writeText ) {
       navigator.clipboard.writeText( url );

@@ -3,7 +3,7 @@
 //
 //    <%= vite_client_tag %>
 //    <%= vite_javascript_tag 'application' %>
-console.log('Vite ⚡️ Rails')
+// console.log('Vite ⚡️ Rails')
 
 // If using a TypeScript entrypoint file:
 //     <%= vite_typescript_tag 'application' %>
@@ -28,6 +28,8 @@ Rails.start();
 
 import '../javascripts/onload.js';
 import '../javascripts/podcastButton.js';
+import '../javascripts/analytics.js';
+import '../javascripts/flash.js';
 
 // stylesheets
 import '../stylesheets/application/about.css.scss';
