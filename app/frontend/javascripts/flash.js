@@ -1,9 +1,18 @@
 import $ from "jquery";
 
 $(function () {
+  $("#notice").on("click", function () {
+    $(this).fadeOut();
+  });
+
+  setTimeout(function () {
+    $("#notice").fadeOut();
+  }, 3500);
+
   $(".flash").on("click", function () {
     $(this).fadeOut();
   });
+
   $(".flash").each(function (idx, el) {
     var $el;
     $el = $(el);

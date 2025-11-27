@@ -1,4 +1,3 @@
-
 // To see this message, add the following to the `<head>` section in your
 // views/layouts/application.html.erb
 //
@@ -16,33 +15,27 @@
 // import * as Turbo from '@hotwired/turbo'
 // Turbo.start()
 //
-import * as ActiveStorage from '@rails/activestorage'
-ActiveStorage.start()
+import * as ActiveStorage from "@rails/activestorage";
+ActiveStorage.start();
 
-import Rails from '@rails/ujs';
+import Rails from "@rails/ujs";
 Rails.start();
 
 //
 // // Import all channels.
 // const channels = import.meta.globEager('./**/*_channel.js')
 
-import $ from 'jquery'
-import '../../../vendor/assets/javascripts/jquery.timepicker';
-import '../javascripts/onload';
+import $ from "jquery";
+import "../../../vendor/assets/javascripts/jquery.timepicker";
+import "../javascripts/onload";
+import "../javascripts/timepicker";
+import "../javascripts/flash";
 
 // stylesheets
-import '../stylesheets/admin/admin.css.scss';
+import "../stylesheets/admin/admin.css.scss";
 
-$(function() {
-  $('.timepicker').timepicker()
-  $('.text_copy').bind('click', function() {
-    $(this).select()
+$(function () {
+  $(".text_copy").on("click", function () {
+    $(this).trigger("select");
   });
-
-  $('#notice').bind('click', function() {
-    $(this).fadeOut()
-  })
-
-  setTimeout(function() { $('#notice').fadeOut() }, 3500)
 });
-

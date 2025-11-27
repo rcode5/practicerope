@@ -1,4 +1,5 @@
-import $ from 'jquery';
+import $ from "jquery";
+import { trackEvent } from "./analytics";
 
 // for the podcast button, we
 // want to copy the link and tell the user to put that
@@ -6,21 +7,24 @@ import $ from 'jquery';
 //
 
 const setupPodcastButton = (el) => {
-  $(el).on('click', (event) => {
-    event.preventDefault()
-    const url = $(el).data('feedUrl')
-    if (navigator && navigator.clipboard && navigator.clipboard.writeText ) {
-      navigator.clipboard.writeText( url );
-      alert("Now that you copied the podcast url on your clipboard,\nyou can paste that into your favorite podcast app and start listening!");
+  $(el).on("click", (event) => {
+    event.preventDefault();
+
+    trackEvent("rss_click");
+    const url = $(el).data("feedUrl");
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url);
+      alert(
+        "Now that you copied the podcast url on your clipboard,\nyou can paste that into your favorite podcast app and start listening!"
+      );
     } else {
-      alert(`Copy and paste this url ${url} into your favorite podcast app!`)
+      alert(`Copy and paste this url ${url} into your favorite podcast app!`);
     }
   });
-}
+};
 
-$(function() {
-  $('.podcast-rss-feed-button').each((idx, el) => {
-    setupPodcastButton(el)
-  })
+$(function () {
+  $(".podcast-rss-feed-button").each((idx, el) => {
+    setupPodcastButton(el);
+  });
 });
-
