@@ -5,8 +5,8 @@ require_relative '../s3'
 
 namespace :rope do
   namespace :db do
-    desc 'Sanitize user data'
-    task sanitize_user_data: [:environment] do
+    desc 'Reset user passwords'
+    task reset_user_passwords: [:environment] do
       User.find_each do |u|
         u.password = 'monkey'
         u.save
