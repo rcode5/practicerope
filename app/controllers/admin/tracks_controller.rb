@@ -47,7 +47,7 @@ module Admin
           format.json { render json: @track, status: :created, location: @track }
         else
           format.html { render action: 'new' }
-          format.json { render json: @track.errors, status: :unprocessable_entity }
+          format.json { render json: @track.errors, status: :unprocessable_content }
         end
       end
     end
@@ -60,7 +60,7 @@ module Admin
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
-          format.json { render json: @track.errors, status: :unprocessable_entity }
+          format.json { render json: @track.errors, status: :unprocessable_content }
         end
       end
     end
