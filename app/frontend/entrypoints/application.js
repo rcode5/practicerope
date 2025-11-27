@@ -11,7 +11,6 @@
 // If you want to use .jsx or .tsx, add the extension:
 //     <%= vite_javascript_tag 'application.jsx' %>
 
-
 // Example: Load Rails libraries in Vite.
 //
 // import * as Turbo from '@hotwired/turbo'
@@ -23,20 +22,20 @@
 // // Import all channels.
 // const channels = import.meta.globEager('./**/*_channel.js')
 
-import Rails from '@rails/ujs';
+import Rails from "@rails/ujs";
 Rails.start();
 
-import '../javascripts/onload.js';
-import '../javascripts/podcastButton.js';
-import '../javascripts/analytics.js';
-import '../javascripts/flash.js';
+import "../javascripts/onload.js";
+import "../javascripts/podcastButton.js";
+import "../javascripts/analytics.js";
+import "../javascripts/flash.js";
 
 // stylesheets
-import '../stylesheets/application/about.css.scss';
-import '../stylesheets/application/banner.css.scss';
-import '../stylesheets/application/loveli-icons.css.scss';
-import '../stylesheets/application/main.css.scss';
-import '../stylesheets/application/search.css.scss';
-import '../stylesheets/application/site-nav.css.scss';
-import '../stylesheets/application/tooltips.css.scss';
-import '../stylesheets/application/tracks.css.scss';
+import "../stylesheets/application/about.css.scss";
+import "../stylesheets/application/banner.css.scss";
+import "../stylesheets/application/loveli-icons.css.scss";
+import "../stylesheets/application/main.css.scss";
+import "../stylesheets/application/search.css.scss";
+import "../stylesheets/application/site-nav.css.scss";
+import "../stylesheets/application/tooltips.css.scss";
+import "../stylesheets/application/tracks.css.scss";
