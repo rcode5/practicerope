@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.3.6'
+ruby '3.4.8'
 
 gem 'active_storage_validations'
 gem 'acts-as-taggable-on'
