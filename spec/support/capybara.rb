@@ -11,9 +11,7 @@ class CapybaraChromeConfig
       options.add_argument('--window-size=1900,1200')
       options.add_argument('--no-sandbox')
       options.add_argument('--disable-gpu')
-      if headless
-        options.add_argument('--headless')
-      end
+      options.add_argument('--headless') if headless
     end
   end
 end
