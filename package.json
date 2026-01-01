@@ -16,7 +16,7 @@
   "dependencies": {},
   "scripts": {
     "prettier:fix": "prettier --write app/frontend/**/*.js",
-    "lint:fix": "yarn prettier:fix && yarn stylelint-fix", 
+    "lint:fix": "yarn prettier:fix && yarn stylelint-fix",
     "stylelint": "stylelint 'app/frontend/**/*.{scss,css}'",
     "stylelint-fix": "stylelint --fix 'app/frontend/**/*.{scss,css}'"
   }
