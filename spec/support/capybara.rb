@@ -7,11 +7,12 @@ class CapybaraChromeConfig
   def self.chrome_capabilities(headless: false)
     Selenium::WebDriver::Chrome::Options.new.tap do |options|
       options.add_argument('--disable-popup-blocking')
+      options.add_argument('--disable-dev-shm-usage')
       options.add_argument('--window-size=1900,1200')
+      options.add_argument('--no-sandbox')
+      options.add_argument('--disable-gpu')
       if headless
         options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-gpu')
       end
     end
   end
