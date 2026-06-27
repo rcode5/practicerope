@@ -2,7 +2,7 @@
 
 class TracksController < ApplicationController
   def show
-    @track = Track.friendly.find(params[:id])
+    @track = Track.friendly.find(params.expect(:id))
     respond_to do |format|
       format.html
       format.json { render json: TrackSerializer.new(@track).serialized_json }
