@@ -12,7 +12,7 @@ module Admin
     end
 
     def show
-      @track = Track.friendly.find(params[:id])
+      @track = Track.friendly.find(params.expect(:id))
 
       respond_to do |format|
         format.html # show.html.erb
@@ -30,13 +30,13 @@ module Admin
     end
 
     def clone
-      @track = Track.friendly.find(params[:id]).dup
+      @track = Track.friendly.find(params.expect(:id)).dup
       @track.published = false
       render 'new'
     end
 
     def edit
-      @track = Track.friendly.find(params[:id])
+      @track = Track.friendly.find(params.expect(:id))
     end
 
     def create
@@ -53,7 +53,7 @@ module Admin
     end
 
     def update
-      @track = Track.friendly.find(params[:id])
+      @track = Track.friendly.find(params.expect(:id))
       respond_to do |format|
         if @track.update(track_params)
           format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully updated.' }
@@ -66,7 +66,7 @@ module Admin
     end
 
     def destroy
-      @track = Track.friendly.find(params[:id])
+      @track = Track.friendly.find(params.expect(:id))
       @track.destroy
 
       respond_to do |format|
